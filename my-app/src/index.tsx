@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { store } from './Redux/store'
 import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(
@@ -34,7 +34,7 @@ const customTheme = extendTheme({
     },
   },
 });
-// console.log(store.getState())
+
 root.render(
   
   <Provider store={store}>

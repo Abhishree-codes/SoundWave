@@ -15,6 +15,9 @@ import { Box, Divider } from "@chakra-ui/react";
 import Footer from "../../Components/LandingSections/Footer";
 
 import WeeklyPopular from "../../Components/LandingSections/WeeklyPopular";
+import { useSelector } from "react-redux";
+import { Cart_state } from "../../Redux/Cart_redux/Types";
+import { RootState } from "../../Redux/store";
 
 
 export default function Landing(){
@@ -34,7 +37,8 @@ export default function Landing(){
         
         // Add more images here...
       ];
-    
+      //const catvalue = useSelector((store:RootState)=>store.cartReducer)
+      //console.log('landing',catvalue)
     return (
         <>
       <TopBannerStage/>

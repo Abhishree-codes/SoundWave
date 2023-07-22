@@ -10,7 +10,9 @@ import {
   import { FaArrowRight } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { Cart_state } from '../../Redux/Cart_redux/Types'
+import { RootState } from '../../Redux/store'
   import { formatPrice } from './PriceTag'
+  import {Link as PathLink} from 'react-router-dom'
   
   type OrderSummaryItemProps = {
     label: string
@@ -31,7 +33,7 @@ import { Cart_state } from '../../Redux/Cart_redux/Types'
   }
   
   export const CartOrderSummary = () => {
-    const amount : number = useSelector((store:Cart_state)=>store.total_amount)
+    const amount : number = useSelector((store:RootState)=>store.cartReducer.total_amount)
     return (
       <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
         <Heading size="md">Order Summary</Heading>
@@ -54,15 +56,17 @@ import { Cart_state } from '../../Redux/Cart_redux/Types'
             </Text>
             <Text fontSize="xl" fontWeight="extrabold">
               {/*formatPrice(amount)*/}
-              {amount.toFixed(2) }
-              ₹
+              $ {amount.toFixed(2) }
+              
 
             </Text>
           </Flex>
         </Stack>
-        <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+        <PathLink to={'/payment'}>
+        <Button colorScheme="blue" size="lg" w='full' fontSize="md" rightIcon={<FaArrowRight />}>
           Checkout
         </Button>
+        </PathLink>
       </Stack>
     )
   }

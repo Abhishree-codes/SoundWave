@@ -48,7 +48,7 @@ import {
   import { useEffect, useState } from "react"
 import { useDebounce } from "../../hooks/useDebounce";
 import { useSearchParams } from "react-router-dom";
- 
+import { Link as PathLink } from "react-router-dom";
   
   interface APIobj{
     id: number;
@@ -291,10 +291,10 @@ import { useSearchParams } from "react-router-dom";
             </Flex>
             <Flex alignItems={"center"} gap={3}>
             <AiOutlineShoppingCart/>
-            <Link _hover={{textDecoration:"none"}} className="hover-underline-animation">
-            <Text>
+            <Link  _hover={{textDecoration:"none"}}  className="hover-underline-animation">
+            <PathLink to={'/cart'}><Text>
               Cart
-            </Text>
+            </Text></PathLink>
             </Link>
             
            
